@@ -22,11 +22,13 @@ exec "nohlsearch"
 set incsearch
 set ignorecase
 set smartcase
-
 set mouse=a
+set nocompatible
+set backspace=indent,eol,start
 
 noremap <LEADER><CR> :nohlsearch<CR>
 
+" Direction
 "     ^
 "     i 
 "< j     l>
@@ -45,10 +47,10 @@ noremap J 0
 " Ctrl+l key: go to the end of the line
 noremap L $
 
-inoremap <C-i> <up>
-inoremap <C-j> <left>
-inoremap <C-k> <down>
-inoremap <C-l> <right>
+" inoremap <C-i> <up>
+" inoremap <C-j> <left>
+" inoremap <C-k> <down>
+" inoremap <C-l> <right>
 
 map S :w<CR>
 map s <nop>
@@ -80,14 +82,6 @@ map tl :+tabnext<CR>
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let python_highlight_all=1
-au BufNewFile,BufRead *.py
-\ set tabstop=4
-\ set softtabstop=4
-\ set shiftwidth=4
-\ set textwidth=79
-\ set expandtab
-\ set autoindent
-\ set fileformat=unix
 
 " Compile function
 map r :call CompileRunGcc()<CR>
@@ -130,9 +124,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/indentpython.vim'
 
 call plug#end()
-
+				
 color snazzy
 let g:SnazzyTransparent = 1
